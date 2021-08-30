@@ -117,7 +117,7 @@ Using attendance.log:
 
 * (alias - getMoM) The head should be able to view the MoM records between two given dates. Create a script which the head can run to generate a file in their home directory with a table having each week’s MoMs, along with the person who took the MoM and the date. The MoM should be obtained from the MoM taker’s home directory.
 
-
+__________________________________________________________________
 
 * Create a database to store MoMs instead of files in the users' directory. 
 
@@ -157,6 +157,7 @@ sudo docker exec -it < web-server container ID> bash'
  (< web-server container ID> obtained from 'docker ps -a')
  
 Now run:
+
         bash /home/Documents/webserversetup.sh
 
         exit
@@ -167,6 +168,7 @@ sudo docker exec -it < Database container ID> bash'
  (< Database container ID> obtained from 'docker ps -a')
 
 Now run:
+
         bash /home/Documents/serversetup.sh
         
         exit
@@ -233,11 +235,4 @@ All transferred files are AES-256 encrypted
 Make sure the name of the uploaded file doesn't match with any existing filename that has been uploaded, as the file will be overwritten
   
 The files are stored in a folder that is mounted on a volume, which will ensure uploaded files are preserved even if server is taken down and deployed again. 
-
-
-
-
-
-
-
 

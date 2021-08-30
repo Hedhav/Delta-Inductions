@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+
+
+  file-server:
+
+    build: .
+    container_name: fileserver
+    ports:
+      - "127.0.0.1:5019:5019"
+    tty: true
+
+    volumes:
+       - /var/lib/docker/volumes/alphaqfileserver12:/home/Documents/delta/fileserver/filestorage

@@ -2,6 +2,11 @@
 
 ## Task 1
 
+Merge all the three files (file1,fil2,file3) into one, avoiding duplicates i.e. the merged file will consist of the columns: Employee ID, Name, Phone Number, Salary, Email and year of joining.
+
+Also ensure that all the entries in the three files match with the final one. Finally, you have to write a script which takes a column name and it's entry as paramaters and replaces it with the third parameter. If multiple rows have the same values, all of them should be replaced.
+
+
 Run:
 
     bash script.sh
@@ -21,6 +26,12 @@ output is stored in newfile.txt
 
 
 ## Task 2
+
+Load Balancer
+
+Accept requests to loadbalance.local. Figure out the type of device used by the user from the request and redirect the request to the appropriate load balancer (desktop/mobile). The desktop and mobile loadbalancers redirect all incoming requests to their two servers each
+
+
 
 Run: (copy contents of config to here. )
 
@@ -68,6 +79,8 @@ All changes made within the files in the login.local folder (including files in 
 
 ## Task 5
 
+Attempt at implementing a SHA-384 hash function to accept any plain text and give the hash as output without using any libraries that directly do the hashing.
+
         g++ test3.cpp -o gensha384 && ./gensha384
 
 Input the string to obtain SHA-384 hashed version of it.
@@ -79,6 +92,56 @@ The python script (test.py) DOES NOT WORK. (Way too many errors)
 
 
 ## Docker-Task-1,2
+
+
+### Task Requirement
+
+(alias - genUser) Set up 30 user accounts for each domain + 1 Alpha Q head with permission management. The users must be named as follows:
+sysAd_01, sysAd_02 ….sysAd_30,  appDev_01, appDev_02, ….appDev_30,  webDev_01, webDev_02, ….webDev_30
+Jay_Jay (head of Alpha Q).
+
+Among these accounts, profile_01 - profile_10 are second years, profile_11 - profile_20 are third years, profile_21 - profile_30 are fourth years.
+
+(alias - permit) Set up permissions for accounts which follow the hierarchy:
+Second years can view only their own home directory. 
+Third years can view their own home directory as well as all the home directories of second years of their domain.
+Fourth years can view their own home directory as well as the home directories of second and third years of their domain.
+Jay_Jay can read all the other users' home directories.
+
+(alias - schedule) Alpha Q has regular meetings to discuss what their members are working on frequently. You are provided with a text file with the dates of future meetings(future.txt). Create a file schedule in each user's home directory with two columns, date and time. This file should be updated with the meeting schedule if there is a meeting that day.
+
+Using attendance.log:
+
+(alias - attendance) You are given a log of when members joined the meetings in a file attendance.log. Write a script for the head to get a list of members who were absent when passed two dates as parameters. If no arguments are passed then find the absentees and the dates they were absent till today.
+
+(alias - genMoM) The last second year to join a meet is repsonsible for taking MoM (Minutes of Meeting; a doc where the main points of the meet are jotted down). Find the last second year to join the meet. In that user's home directory, create a file with the name in the format ${date}_mom, where ${date} represents the date of the particular meeting. Add some random text to it.
+
+(alias - getMoM) The head should be able to view the MoM records between two given dates. Create a script which the head can run to generate a file in their home directory with a table having each week’s MoMs, along with the person who took the MoM and the date. The MoM should be obtained from the MoM taker’s home directory.
+
+
+
+Create a database to store MoMs instead of files in the users' directory. 
+
+Make sure restarting the docker container does not destroy the data.
+
+Add PHPMyAdmin service for viewing the database.
+
+Create an account with read-only permissions to read the MOMs present in the DB.
+
+
+Create a website to display all the MOMs inserted into the SQL database
+
+Implement a feature to login using username and password. Set default password as superuserpass for simplicity.
+
+Implement a Remember Me feature.
+
+Feature to write and save MOMs from the website.
+
+Feature to filter the MOMs based on username and date.
+
+
+Dockrize the entire setup
+
 
 ### Initial Setup
 Copy all contents of this repository to any common folder

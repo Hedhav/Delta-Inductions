@@ -1,0 +1,49 @@
+
+
+
+<VirtualHost *:80>
+
+  ServerName loadbalance.local
+
+
+
+  ServerAdmin webmaster@localhost
+  DocumentRoot /var/www/html
+
+  ProxyRequests Off
+  ProxyPreserveHost On
+
+
+  <Proxy balancer://mycluster1>
+        BalancerMember http://localhost:8082 route=DeskServer1
+        BalancerMember http://localhost:8081 route=DeskServer2
+    </Proxy>
+
+  ProxyPass /desktop.loadbalance.local balancer://mycluster1/
+  ProxyPassReverse /desktop.loadbalance.local balancer://mycluster1/
+
+  <Proxy balancer://mycluster>
+        BalancerMember http://localhost:5050 route=MobServer1
+        BalancerMember http://localhost:5051 route=MobServer2
+    </Proxy>
+
+  ProxyPass /mobile.loadbalance.local balancer://mycluster/
+  ProxyPassReverse /mobile.loadbalance.local balancer://mycluster/
+  
+  
+  ErrorLog ${APACHE_LOG_DIR}/proxy-error.log
+  CustomLog ${APACHE_LOG_DIR}/proxy-access.log combined
+
+
+
+
+</VirtualHost>
+
+
+
+
+
+
+
+
+

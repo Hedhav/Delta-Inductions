@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+
+
+  web-server-desk1:
+    build: ./servers/DesktopServers
+    container_name: web-server-desk1
+    restart: always
+    ports:
+      - "8082:80"
+
+  web-server-desk2:
+    build: ./servers/DesktopServers
+    container_name: web-server-desk2
+    ports:
+      - "8081:80"
+
+
+  web-server-mob1:
+    build: ./servers/MobileServers
+    container_name: web-server-mob1
+    ports:
+      - "5050:80"
+
+
+  web-server-mob2:
+    build: ./servers/MobileServers
+    container_name: web-server-mob2
+    ports:
+      - "5051:80"
+
+ 

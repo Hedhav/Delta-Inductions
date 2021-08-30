@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+
+  login-local:
+    build: .
+    container_name: login-local
+    restart: always
+    ports:
+      - "8083:80"
